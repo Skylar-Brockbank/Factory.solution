@@ -60,5 +60,12 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Detail", new{id = e.EngineerId});
     }
+    public ActionResult RemoveDevice(int id)
+    {
+      EngineerMachine target = _db.EngineerMachines.FirstOrDefault(em => em.EngineerMachineId == id);
+      _db.EngineerMachines.Remove(target);
+      _db.SaveChanges();
+      return RedirectToAction("Detail", new{id = target.EngineerId});
+    }
   }
 }

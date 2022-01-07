@@ -10,7 +10,7 @@
   <ul>
     @foreach(var join in @Model.Machines)
     {
-      <li>@join.Machine.DeviceName : @Html.ActionLink("delete", "Delete", new{id = join.EngineerMachineId})</li>
+      <li>@join.Machine.DeviceName : @Html.ActionLink("delete", "RemoveDevice", new{id = join.EngineerMachineId})</li>
     }
   </ul>
   @Html.HiddenFor(model=>model.EngineerId)
