@@ -66,5 +66,12 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Detail", new{id=target.MachineId});
     }
+    public ActionResult Delete(int id)
+    {
+      Machine target = _db.Machines.FirstOrDefault(m=>m.MachineId==id);
+      _db.Remove(target);
+      _db.SaveChanges();
+      return RedirectToAction("index");
+    }
   }
 }
