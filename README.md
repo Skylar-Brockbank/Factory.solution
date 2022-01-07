@@ -31,11 +31,11 @@ _An application that uses a many to many realationship to keep track of which en
 ```
 {
     "ConnectionStrings": {
-        "DefaultConnection": "Server=localhost;Port=3306;database=PROJECT_NAME;uid=root;pwd=[YOUR-PASSWORD-HERE];"
+        "DefaultConnection": "Server=localhost;Port=3306;database=skylar_brockbank;uid=root;pwd=[YOUR-PASSWORD-HERE];"
     }
 }
 ```
-* _Replace `PROJECT_NAME` with the name of your database, and `[YOUR-PASSWORD-HERE]` with your MySql Password.
+* _Replace `[YOUR-PASSWORD-HERE]` with your MySql Password.
 
 * _alternatively you can [clone this repository](https://www.learnhowtoprogram.com/introduction-to-programming/git-html-and-css/practice-github-remote-repositories) from Git Hub_
 
