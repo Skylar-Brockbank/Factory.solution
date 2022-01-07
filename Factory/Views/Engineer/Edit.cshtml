@@ -1,0 +1,19 @@
+@model Factory.Models.Engineer
+@using Factory.Models
+
+@using(Html.BeginForm())
+{
+  @Html.LabelFor(model => model.EngineerName, "Name: ")
+  @Html.TextBoxFor(model => model.EngineerName)
+  <br>
+  <h4>Machine Licenses</h4>
+  <ul>
+    @foreach(var join in @Model.Machines)
+    {
+      <li>@join.Machine.DeviceName : @Html.ActionLink("delete", "Delete", new{id = join.EngineerMachineId})</li>
+    }
+  </ul>
+  @Html.DropDownList("SelectMachines");
+  <input type = "submit" value="submit">
+}
+@Html.ActionLink("go back","Detail", new{id = Model.EngineerId})

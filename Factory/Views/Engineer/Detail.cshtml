@@ -9,6 +9,6 @@
     <li>@join.Machine.DeviceName</li>
   }
 </ul>
-@Html.ActionLink("Edit Engineer", "Edit", "Engineer")
+@Html.ActionLink("Edit Engineer", "Edit", "Engineer", new{id = Model.EngineerId})
 <br>
 @Html.ActionLink("Go Back", "Index", "Engineer")
