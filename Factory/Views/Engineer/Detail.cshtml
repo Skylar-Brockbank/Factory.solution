@@ -1,0 +1,14 @@
+@using Factory.Models;
+
+<h1>@Model.EngineerName</h1>
+
+<h5>Licenced for these Machines:</h5>
+<ul>
+  @foreach (EngineerMachine join in @Model.Machines)
+  {
+    <li>@join.Machine.DeviceName</li>
+  }
+</ul>
+@Html.ActionLink("Edit Engineer", "Edit", "Engineer")
+<br>
+@Html.ActionLink("Go Back", "Index", "Engineer")

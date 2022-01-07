@@ -5,10 +5,10 @@ namespace Factory.Models
   {
     public Machine()
     {
-      LicensedEngineers = new HashSet<Engineer>();
+      LicensedEngineers = new HashSet<EngineerMachine>();
     }
     public int MachineId {get;set;}
     public string DeviceName {get;set;}
-    public virtual ICollection<Engineer> LicensedEngineers {get;}
+    public virtual ICollection<EngineerMachine> LicensedEngineers {get;}
   }
 }

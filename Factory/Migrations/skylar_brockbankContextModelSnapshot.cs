@@ -16,21 +16,6 @@ namespace Factory.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("EngineerMachine", b =>
-                {
-                    b.Property<int>("LicensedEngineersEngineerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MachinesMachineId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LicensedEngineersEngineerId", "MachinesMachineId");
-
-                    b.HasIndex("MachinesMachineId");
-
-                    b.ToTable("EngineerMachine");
-                });
-
             modelBuilder.Entity("Factory.Models.Engineer", b =>
                 {
                     b.Property<int>("EngineerId")
@@ -59,6 +44,10 @@ namespace Factory.Migrations
 
                     b.HasKey("EngineerMachineId");
 
+                    b.HasIndex("EngineerId");
+
+                    b.HasIndex("MachineId");
+
                     b.ToTable("EngineerMachines");
                 });
 
@@ -76,19 +65,29 @@ namespace Factory.Migrations
                     b.ToTable("Machines");
                 });
 
-            modelBuilder.Entity("EngineerMachine", b =>
+            modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
                 {
                     b.HasOne("Factory.Models.Engineer", null)
-                        .WithMany()
-                        .HasForeignKey("LicensedEngineersEngineerId")
+                        .WithMany("Machines")
+                        .HasForeignKey("EngineerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Factory.Models.Machine", null)
-                        .WithMany()
-                        .HasForeignKey("MachinesMachineId")
+                        .WithMany("LicensedEngineers")
+                        .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Factory.Models.Engineer", b =>
+                {
+                    b.Navigation("Machines");
+                });
+
+            modelBuilder.Entity("Factory.Models.Machine", b =>
+                {
+                    b.Navigation("LicensedEngineers");
                 });
 #pragma warning restore 612, 618
         }

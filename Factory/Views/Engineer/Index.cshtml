@@ -3,6 +3,8 @@
 <ul>
   @foreach (Engineer e in ViewBag.EngineerList)
   {
-      <li>@e.EngineerName</li>
+      <li>@Html.ActionLink($"{e.EngineerName}", "Detail", new{id = e.EngineerId})</li>
   }
 </ul>
+@Html.ActionLink("Add and Engineer", "Create", "Engineer")
+@Html.ActionLink("return home", "Index", "Home")
