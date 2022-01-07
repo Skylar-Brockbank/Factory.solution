@@ -1,0 +1,12 @@
+@using Factory.Models
+
+<h1>machines</h1>
+<ul>
+  @foreach (Machine m in @Model)
+  {
+    <li>@m.DeviceName</li>
+  }
+</ul>
+@Html.ActionLink("go back", "Index", "Home")
+<br>
+@Html.ActionLink("add a machine", "Create", "Machine")

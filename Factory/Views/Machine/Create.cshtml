@@ -1,0 +1,9 @@
+@model Factory.Models.Machine
+
+@using(Html.BeginForm())
+{
+  @Html.LabelFor(model => model.DeviceName, "Name: ")
+  @Html.TextBoxFor(model => model.DeviceName)
+  <input type= "submit" value="add">
+}
+@Html.ActionLink("go back", "Index")
