@@ -1,0 +1,14 @@
+@using Factory.Models
+
+<h1>@Model.DeviceName</h1>
+
+<h5>Licenced Engineers:</h5>
+<ul>
+  @foreach(EngineerMachine em in @Model.LicensedEngineers)
+  {
+    <li>@em.Engineer.EngineerName</li>
+  }
+</ul>
+@Html.ActionLink("go back", "Index")
+<br>
+@Html.ActionLink("Edit Machine", "Edit", new {id = @Model.MachineId})

@@ -4,7 +4,7 @@
 <ul>
   @foreach (Machine m in @Model)
   {
-    <li>@m.DeviceName</li>
+    <li>@Html.ActionLink($"{m.DeviceName}","Detail",new {id=m.MachineId}) : @Html.ActionLink("delete","Delete",new {id=m.MachineId})</li>
   }
 </ul>
 @Html.ActionLink("go back", "Index", "Home")

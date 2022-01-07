@@ -1,0 +1,20 @@
+@model Factory.Models.Machine
+
+@using Factory.Models
+
+@using(Html.BeginForm())
+{
+  @Html.LabelFor(model => model.DeviceName, "Device Name: ")
+  @Html.TextBoxFor(model => model.DeviceName)
+  @Html.HiddenFor(model=>model.MachineId)
+  <br>
+  <h4>Licenced Engineers: </h4>
+  <ul>
+    @foreach (EngineerMachine em in @Model.LicensedEngineers)
+    {
+      <li>@em.Engineer.EngineerName : @Html.ActionLink("Delete","RemoveEngineer",new{id = em.EngineerMachineId})</li>
+    }
+  </ul>
+  @Html.DropDownList("SelectEngineer")
+  <input type="submit" value="submit">
+}
