@@ -12,7 +12,6 @@
 * _dotnet script, REPL_
 * _Razor View Engine_
 * _MySQL and MySQL Workbench_
-* _Entity Framework_
 * _Git_
 * _Pomelo Entity Framework for MySql_
 * _Microsoft Entity Framework_
