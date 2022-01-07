@@ -67,5 +67,12 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Detail", new{id = target.EngineerId});
     }
+    public ActionResult Delete(int id)
+    {
+      Engineer target = _db.Engineers.FirstOrDefault(e=>e.EngineerId==id);
+      _db.Engineers.Remove(target);
+      _db.SaveChanges();
+       return RedirectToAction("Index");
+    }
   }
 }
