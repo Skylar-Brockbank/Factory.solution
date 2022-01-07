@@ -1,0 +1,8 @@
+@using Factory.Models;
+<h1>engineers</h1>
+<ul>
+  @foreach (Engineer e in ViewBag.EngineerList)
+  {
+      <li>@e.EngineerName</li>
+  }
+</ul>
