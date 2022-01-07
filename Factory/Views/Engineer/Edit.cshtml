@@ -13,6 +13,7 @@
       <li>@join.Machine.DeviceName : @Html.ActionLink("delete", "Delete", new{id = join.EngineerMachineId})</li>
     }
   </ul>
+  @Html.HiddenFor(model=>model.EngineerId)
   @Html.DropDownList("SelectMachines");
   <input type = "submit" value="submit">
 }

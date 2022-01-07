@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Factory.Models;
 using System.Linq;
+using System;
 
 namespace Factory.Controllers
 {
@@ -40,8 +41,6 @@ namespace Factory.Controllers
     }
     public ActionResult Edit(int id)
     {
-      //get the specified engineer and prepare a select list for adding machines
-      //you're gonna add a textbox for name so that you can change the name property
       Engineer target = _db.Engineers
         .Include(engineer => engineer.Machines)
         .ThenInclude(join => join.Machine)
